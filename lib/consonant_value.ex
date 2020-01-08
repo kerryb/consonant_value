@@ -1,18 +1,18 @@
 defmodule ConsonantValue do
-  @moduledoc """
-  Documentation for ConsonantValue.
-  """
-
   @doc """
-  Hello world.
+  Given a lowercase string that has alphabetic characters only and no spaces,
+  return the highest value of consonant substrings, where a = 1, b = 2 etc.
 
   ## Examples
 
-      iex> ConsonantValue.hello()
-      :world
+  NB. these are executable doctests
 
+      iex> ConsonantValue.solve("zodiacs")
+      26
+
+      iex> ConsonantValue.solve("strength")
+      57
   """
-  def hello do
-    :world
+  def solve(string) do
   end
 end
