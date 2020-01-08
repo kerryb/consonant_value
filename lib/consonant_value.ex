@@ -14,5 +14,20 @@ defmodule ConsonantValue do
       57
   """
   def solve(string) do
+    string
+    |> String.codepoints()
+    |> Enum.chunk_while([], &chunk_fun/2, &after_fun/1)
+    |> Enum.map(&letter_values/1)
+    |> Enum.max()
+  end
+
+  defp chunk_fun(letter, []) when letter in ~w[a e i o u], do: {:cont, []}
+  defp chunk_fun(letter, acc) when letter in ~w[a e i o u], do: {:cont, acc, []}
+  defp chunk_fun(letter, acc), do: {:cont, [letter | acc]}
+
+  defp after_fun(acc), do: {:cont, acc, []}
+
+  defp letter_values(letters) do
+    letters |> Enum.reduce(0, fn letter, acc -> acc + :binary.first(letter) - 96 end)
   end
 end
