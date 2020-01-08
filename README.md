@@ -1,21 +1,24 @@
 # ConsonantValue
 
-**TODO: Add description**
+Given a lowercase string that has alphabetic characters only and no spaces,
+return the highest value of consonant substrings. Consonants are any letters of
+the alphabet except "aeiou".
 
-## Installation
+We shall assign the following values: a = 1, b = 2, c = 3, ... z = 26.
 
-If [available in Hex](https://hex.pm/docs/publish), the package can be installed
-by adding `consonant_value` to your list of dependencies in `mix.exs`:
+## Examples
 
-```elixir
-def deps do
-  [
-    {:consonant_value, "~> 0.1.0"}
-  ]
-end
-```
+For example, for the word "zodiacs", let's cross out the vowels. We get: "z o d
+cs"
 
-Documentation can be generated with [ExDoc](https://github.com/elixir-lang/ex_doc)
-and published on [HexDocs](https://hexdocs.pm). Once published, the docs can
-be found at [https://hexdocs.pm/consonant_value](https://hexdocs.pm/consonant_value).
+The consonant substrings are: "z", "d" and "cs" and the values are z = 26, d
+= 4 and cs = 3 + 19 = 22. The highest is 26.
 
+    solve("zodiacs") = 26
+
+For the word "strength", let's cross out the vowels and we get "str ngth"
+
+The consonant substrings are: "str" and "ngth" with values "str" = 19 + 20 +
+18 = 57 and "ngth" = 14 + 7 + 20 + 8 = 49. The highest is 57.
+
+    solve("strength") = 57
